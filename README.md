@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+# Employee Directory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Этот проект представляет собой систему управления сотрудниками. Он позволяет отображать список сотрудников, искать их по ФИО, а также просматривать подробную информацию о каждом сотруднике.
 
-## Available Scripts
+## Основные функции
 
-In the project directory, you can run:
+- **Просмотр списка сотрудников**: Вы можете просматривать таблицу сотрудников с основными данными, такими как Ф.И.О., департамент и должность.
+- **Поиск сотрудников**: Легко находите нужного сотрудника по Ф.И.О. с помощью поисковой строки.
+- **Страница с деталями сотрудника**: Перейдите на страницу с подробной информацией о сотруднике, включая фотографию, дату рождения, департамент и должность.
+- **Пагинация**: Система поддерживает пагинацию для удобного просмотра большого списка сотрудников.
 
-### `npm start`
+## Структура проекта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Проект состоит из следующих основных частей:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. **Frontend (React)**
+   - **components/** — компоненты для отображения информации о сотрудниках, поиска и пагинации:
+     - `EmployeeList.tsx` — отображает список сотрудников.
+     - `EmployeeCard.tsx` — отображает подробную информацию о сотруднике.
+     - `SearchBar.tsx` — компонент для поиска сотрудников по Ф.И.О.
+     - `Pagination.tsx` — компонент для пагинации.
+   - **configs/** — конфигурационные файлы:
+     - `config.ts` — кастомный конфигурационный файл проекта.
+   - **pages/** — страницы для отображения списка сотрудников и подробной информации:
+     - `EmployeeListPage.tsx` — страница со списком сотрудников.
+     - `EmployeeCardPage.tsx` — страница с деталями сотрудника.
+   - **services/** — API для взаимодействия с сервером:
+     - `api.ts` — функции для получения данных о сотрудниках.
+   - **App.tsx** — главный компонент приложения.
+   - **index.tsx** — точка входа приложения.
 
-### `npm test`
+### 2. **Backend (Node.js)**
+   - **server/** — серверная часть на Node.js:
+     - `index.js` — сервер, который обрабатывает запросы к API и возвращает данные о сотрудниках.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. **Mock данные**
+   - **mock/employees.json** — файл с данными сотрудников для использования на сервере.
 
-### `npm run build`
+## Как запустить проект
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Клонируйте репозиторий:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/Employee_Directory.git
+cd Employee_Directory
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Установите зависимости:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 3. Запустите сервер:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd server
+node index.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Сервер будет запущен на [http://localhost:4000](http://localhost:4000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Запустите фронтенд:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Как использовать
+
+1. Откройте страницу, чтобы увидеть список сотрудников.
+2. Используйте строку поиска, чтобы найти сотрудника по ФИО.
+3. Нажмите на строчку в таблице с сотрудником, чтобы перейти на страницу с подробной информацией о нем.
+4. Используйте пагинацию, чтобы просмотреть другие страницы списка сотрудников.
+
+## Технологии
+
+- **Frontend**: React, TypeScript, React Router
+- **Backend**: Node.js, Express
+- **API**: REST API
+- **Данные**: Mock данные в формате JSON
